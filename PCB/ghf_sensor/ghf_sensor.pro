@@ -1,13 +1,13 @@
 EAGLE AutoRouter Statistics:
 
-Job           : C:/Users/ws61/Documents/eagle/ghf_sensor/ghf_sensor.brd
+Job           : /Users/kojiyoshida/Documents/eagle/ghf_sensor/ghf_sensor.brd
 
-Start at      : 16:37:48 (2018/03/28)
-End at        : 16:37:48 (2018/03/28)
+Start at      : 01:52:30 (2018/03/30)
+End at        : 01:52:31 (2018/03/30)
 Elapsed time  : 00:00:00
 
-Signals       :    15   RoutingGrid: 50 mil  Layers: 1
-Connections   :    30   predefined:  29 ( 0 Vias )
+Signals       :    20   RoutingGrid: 50 mil  Layers: 1
+Connections   :    39   predefined:  39 ( 6 Vias )
 
 Router memory :   6110
 
@@ -18,8 +18,8 @@ Number of Ripups  :         0         0         0         0         0
 max. Level        :         0         0         0         0         0
 max. Total        :         0         0         0         0         0
 
-Routed            :         1         1         1         1         1
+Routed            :         0         0         0         0         0
 Vias              :         0         0         0         0         0
 Resolution        :   100.0 %   100.0 %   100.0 %   100.0 %   100.0 %
 
-Final             : 96.7% finished. Polygons may have fallen apart.
+Final             : 100.0% finished
