@@ -1,15 +1,15 @@
 EAGLE AutoRouter Statistics:
 
-Job           : /Users/kojiyoshida/Documents/eagle/ghf_sensor/ghf_sensor.brd
+Job           : C:/Users/PCUser/Documents/”_‹ÆIOT/ghf_sensor/ghf_sensor.brd
 
-Start at      : 01:52:30 (2018/03/30)
-End at        : 01:52:31 (2018/03/30)
+Start at      : 01:49:32 (2018/04/10)
+End at        : 01:49:32 (2018/04/10)
 Elapsed time  : 00:00:00
 
-Signals       :    20   RoutingGrid: 50 mil  Layers: 1
-Connections   :    39   predefined:  39 ( 6 Vias )
+Signals       :    23   RoutingGrid: 50 mil  Layers: 1
+Connections   :    54   predefined:  54 ( 9 Vias )
 
-Router memory :   6110
+Router memory :   6624
 
 Passname          :     Route Optimize1 Optimize2 Optimize3 Optimize4
 
