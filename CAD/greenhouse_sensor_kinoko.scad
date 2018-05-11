@@ -54,7 +54,7 @@ union () {
 
 //bottom
 //color("blue")  
-  union () {
+union () {
     difference () { 
           cylinder (r1 = 26, r2 = 26, h= 19);  
           cylinder (r1 = 25, r2 = 25, h= 19);
@@ -102,7 +102,7 @@ union () {
  
   //kiban_base
  //color("red")
- union(){
+union(){
      translate ([0,0,30]) {
       difference(){
           cylinder (r1 =52, r2 = 52, h= 2);
@@ -167,7 +167,7 @@ union(){
 [0,24]
 ] );
   // neji_boss
-%translate ([0,0,7]) {
+translate ([0,0,7]) {
   translate ([43,0,0]) {
       difference () {  cylinder (r1 = 3, r2 = 3, h= 18);
       cylinder (r1 = 1.3, r2 = 1.3, h= 18);}
@@ -198,7 +198,8 @@ module spheroid(){
   //resize([0,40,0])    //resizeではうまく行かなかった
   difference () {
   scale([1,1,5/10])sphere(r = 60);
-  translate ([0,0,-55])cylinder (r1 = 55, r2 = 55, h= 45);
+  translate ([0,0,-57])cylinder (r1 = 55, r2 = 55, h= 45);
+  scale([1,1,5/10])sphere(r = 59);
   }
 }
 
