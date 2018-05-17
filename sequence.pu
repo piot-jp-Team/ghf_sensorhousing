@@ -9,5 +9,6 @@ Note right of Sakura.io: Secure private network
 ghf_SensorUnit1..8 -> IOTmodule: Response modbus.RS485
 IOTmodule -> Sakura.io: Responce LTE
 Sakura.io -> SERVER: Responce Websocket
+SERVER -> SERVER: Data storage
 end
 |||
