@@ -18,17 +18,19 @@ sakura.ioから、laravel製のグラフで表示します。（作成中）
 (サーバ側)
 - nginx, php7
 - websocket クライアント　ratchetphp/Pawl
-- phpフレームワーク larabel 5.5
+- phpフレームワーク larabel 5.6
 - mysql 5.7
 
 (組み込み側)
-- nginx, php7
-- websocket クライアント　ratchetphp/Pawl
-- phpフレームワーク larabel 5.5
-- mysql 5.7
+- Arduino
+- modbus/master slave
+- mh-z19uart
+- Adafruit_Sensor
+- Adafruit_AM2320
+- sakura.io
 
 ## 開発ツール
 - 筐体設計 OpenSCAD
 - PCB設計 Eagle6.6
-- ファームウエア arduino IDE
+- ファームウエア arduino IDE1.8.5
 - エディタはATOM, PlantUML, Netbeans etc.
