@@ -18,7 +18,8 @@ sakura.ioから、laravel製のグラフで表示します。（作成中）
 (サーバ側)
 - nginx, php7
 - websocket クライアント　ratchetphp/Pawl
-- phpフレームワーク larabel 5.6
+- phpフレームワーク laravel 5.6
+- LaravelCharts
 - mysql 5.7
 
 (組み込み側)
