@@ -31,7 +31,7 @@ sakura.ioから、laravel製のグラフで表示します。（作成中）
 - sakura.io
 
 ## 開発ツール
-- 筐体設計 OpenSCAD
+- 筐体設計 OpenSCAD, FreeCAD
 - PCB設計 Eagle6.6
 - ファームウエア arduino IDE1.8.5
 - エディタはATOM, PlantUML, Netbeans etc.
