@@ -1,8 +1,26 @@
-
+#include <ModbusRtu.h>
 #include <SakuraIO.h>
 
 // Sakura IO
 SakuraIO_I2C sakuraio;
+
+// data array for modbus network sharing
+uint16_t au16data1[16];
+uint16_t au16data2[16];
+uint16_t au16data3[16];
+uint16_t au16data4[16];
+uint16_t au16data5[16];
+uint16_t au16data6[16];
+uint16_t au16data7[16];
+uint16_t au16data8[16];
+uint8_t u8state;
+Modbus master(0,0,0); // this is master and RS-232 or USB-FTDI
+/**
+ * This is an structe which contains a query to an slave device
+ */
+modbus_t telegram;
+unsigned long u32wait;
+
 
 void setup() {
 
@@ -10,6 +28,11 @@ void setup() {
   while ((sakuraio.getConnectionStatus() & 0x80) != 0x80) {
     delay(1000);
   }
+
+  master.begin( 19200 ); // baud-rate at 19200
+  master.setTimeOut( 2000 ); // if there is no answer in 2000 ms, roll over
+  u32wait = millis() + 1000;
+  u8state = 0; 
 
 
 }
@@ -48,9 +71,12 @@ void loop() {
 */
       //0x03 - Read Holding Registers (channel:"1", type:i ,value:)
       if (type == 'i') {
-        int32_t value = 0;
-        memcpy(&value, &values, sizeof(int32_t));
+        if (channel == "1") {
 
+          //ToDo  Tx Queue
+
+        
+        }
       }
 
     } else {
@@ -58,6 +84,30 @@ void loop() {
       delay(5000);
     }
   }
+
+  switch( u8state ) {
+  case 0: 
+    if (millis() > u32wait) u8state++; // wait state
+    break;
+  case 1: 
+    telegram.u8id = 1; // slave address
+    telegram.u8fct = 3; // function code (this one is registers read)
+    telegram.u16RegAdd = 1; // start address in slave
+    telegram.u16CoilsNo = 4; // number of elements (coils or registers) to read
+    telegram.au16reg = au16data1; // pointer to a memory array in the Arduino
+
+    master.query( telegram ); // send query (only once)
+    u8state++;
+    break;
+  case 2:
+    master.poll(); // check incoming messages
+    if (master.getState() == COM_IDLE) {
+      u8state = 0;
+      u32wait = millis() + 100; 
+    }
+    break;
+  }
+
 
 
 }
