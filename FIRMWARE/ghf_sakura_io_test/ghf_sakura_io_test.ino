@@ -67,6 +67,11 @@ void loop() {
   // Tx Queue
   uint8_t ret;
   ret = sakuraio.enqueueTx((uint8_t)0, (int32_t)counter);
+  ret = sakuraio.enqueueTx((uint8_t)1, (int32_t)counter);
+  ret = sakuraio.enqueueTx((uint8_t)2, (int32_t)counter);
+  ret = sakuraio.enqueueTx((uint8_t)3, (int32_t)counter);
+  ret = sakuraio.enqueueTx((uint8_t)4, (int32_t)counter);
+  ret = sakuraio.enqueueTx((uint8_t)5, (int32_t)counter);
   Serial.print("Enqueue ");
   Serial.println(ret);
 
@@ -78,7 +83,7 @@ void loop() {
   Serial.print(" Queued=");
   Serial.println(queued);
 
-  if(queued >= 3){
+  if(queued >= 7){
     ret = sakuraio.clearTx();
     Serial.print("Clear ");
     Serial.println(ret);
@@ -114,7 +119,7 @@ void loop() {
         Serial.print(values[b]);
         Serial.print(" ");
       }
-      requestFlg = 1;
+      if(channel == 1 && values[0] == 3 ) requestFlg = 1;
       Serial.print(values[7]);
       Serial.print("] offset="); Serial.println((int32_t)offset);
     }else{
@@ -122,5 +127,5 @@ void loop() {
     }
   }
 
-  delay(5000);
+  delay(1000);
 }
