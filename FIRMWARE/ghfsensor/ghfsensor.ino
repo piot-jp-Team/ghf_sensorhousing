@@ -26,6 +26,7 @@ void setup() {
   while( mhz19.isWarming() ) {
     Serial.print("MH-Z19 now warming up...  status:");Serial.println(mhz19.getStatus());
     delay(1000);
+    break;  //ステータスがなかなか変わらないため、とりあえず進める
   }
 
 //自分のアドレス取得
