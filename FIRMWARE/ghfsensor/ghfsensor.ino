@@ -31,9 +31,10 @@ void setup() {
 
 //自分のアドレス取得
 //(D9 D8 D7)
-bitWrite( slaveID, 0, digitalRead( 9 ));
-bitWrite( slaveID, 1, digitalRead( 8 ));
-bitWrite( slaveID, 2, digitalRead( 7 ));
+bitWrite( slaveID, 0, !digitalRead( 9 ));
+bitWrite( slaveID, 1, !digitalRead( 8 ));
+bitWrite( slaveID, 2, !digitalRead( 7 ));
+slaveID ++;
 slave.setID(slaveID);
 //Serial.print("slaveID: "); Serial.println(slaveID);
 
@@ -60,8 +61,10 @@ void loop() {
   sprintf(HUMX,"%X", hum);
   //Serial.print(HUMX);
 
-  au16data[0]=temp;
-  au16data[1]=hum;
+  //au16data[0]=temp;
+  //au16data[1]=hum;
+  au16data[0]=am2320.readRegister16(AM2320_REG_TEMP_H); //x10(℃)
+  au16data[1]=am2320.readRegister16(AM2320_REG_HUM_H);  //x10(％)
   au16data[2]=analogRead(2); //LUX
   au16data[3]=co2ppm;
   au16data[4]=analogRead(1); //Soil Hum
