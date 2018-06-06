@@ -63,7 +63,7 @@ void loop() {
 
   //au16data[0]=temp;
   //au16data[1]=hum;
-  au16data[0]=am2320.readRegister16(AM2320_REG_TEMP_H); //x10(℃)
+  au16data[0]=am2320.readRegister16(AM2320_REG_TEMP_H); //signed x10(℃)
   au16data[1]=am2320.readRegister16(AM2320_REG_HUM_H);  //x10(％)
   au16data[2]=analogRead(2); //LUX
   au16data[3]=co2ppm;
