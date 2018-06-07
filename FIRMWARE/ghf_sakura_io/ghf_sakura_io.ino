@@ -14,6 +14,13 @@ uint16_t au16data6[16];
 uint16_t au16data7[16];
 uint16_t au16data8[16];
 uint8_t u8state;
+/**
+ *  Modbus object declaration
+ *  u8id : node id = 0 for master, = 1..247 for slave
+ *  u8serno : serial port (use 0 for Serial)
+ *  u8txenpin : 0 for RS-232 and USB-FTDI 
+ *               or any pin number > 1 for RS-485
+ */
 Modbus master(0,0,0); // this is master and RS-232 or USB-FTDI
 /**
  * This is an structe which contains a query to an slave device
@@ -21,6 +28,7 @@ Modbus master(0,0,0); // this is master and RS-232 or USB-FTDI
 modbus_t telegram;
 unsigned long u32wait;
 
+uint8_t requestFlg = 0;
 
 void setup() {
 
@@ -28,12 +36,11 @@ void setup() {
   while ((sakuraio.getConnectionStatus() & 0x80) != 0x80) {
     delay(1000);
   }
-
+  //Modbus setup
   master.begin( 19200 ); // baud-rate at 19200
   master.setTimeOut( 2000 ); // if there is no answer in 2000 ms, roll over
   u32wait = millis() + 1000;
   u8state = 0; 
-
 
 }
 
@@ -69,15 +76,10 @@ void loop() {
       Serial.println((char)type);
       Serial.print("value: ");
 */
-      //0x03 - Read Holding Registers (channel:"1", type:i ,value:)
-      if (type == 'i') {
-        if (channel == "1") {
-
-          //ToDo  Tx Queue
-
-        
-        }
-      }
+       //0x03 - Read Holding Registers (channel:"1", type:i ,value:)
+       //    Slave address 1 only yet
+       if(channel == 1 && values[0] == 3 ) requestFlg = 1;
+       
 
     } else {
       //sakuraio.dequeueRx ERROR
@@ -85,6 +87,7 @@ void loop() {
     }
   }
 
+  //Modbus Poll
   switch( u8state ) {
   case 0: 
     if (millis() > u32wait) u8state++; // wait state
@@ -108,6 +111,25 @@ void loop() {
     break;
   }
 
+
+  if(queued >= 7){
+    ret = sakuraio.clearTx();
+    //Serial.print("Clear ");
+    //Serial.println(ret);
+  }else if(queued >= 1){
+    if(requestFlg == 1){
+      sakuraio.enqueueTx(0,au16data1[0]);
+      sakuraio.enqueueTx(1,au16data1[1]);
+      sakuraio.enqueueTx(2,au16data1[2]);
+      sakuraio.enqueueTx(0,au16data1[3]);
+      sakuraio.enqueueTx(1,au16data1[4]);
+      sakuraio.enqueueTx(2,au16data1[5]);
+      sakuraio.send();
+      //Serial.print("Send ");
+      //Serial.println(ret);
+      requestFlg = 0;
+    }
+  }
 
 
 }
