@@ -63,9 +63,10 @@ void loop() {
   Serial.print("Quality ");
   Serial.println(signalQuality);
 
-
   // Tx Queue
+  
   uint8_t ret;
+  /*
   ret = sakuraio.enqueueTx((uint8_t)0, (int32_t)counter);
   ret = sakuraio.enqueueTx((uint8_t)1, (int32_t)counter);
   ret = sakuraio.enqueueTx((uint8_t)2, (int32_t)counter);
@@ -74,6 +75,7 @@ void loop() {
   ret = sakuraio.enqueueTx((uint8_t)5, (int32_t)counter);
   Serial.print("Enqueue ");
   Serial.println(ret);
+  */
 
   uint8_t avail;
   uint8_t queued;
@@ -87,13 +89,6 @@ void loop() {
     ret = sakuraio.clearTx();
     Serial.print("Clear ");
     Serial.println(ret);
-  }else if(queued >= 1){
-    if(requestFlg == 1){
-      ret = sakuraio.send();
-      Serial.print("Send ");
-      Serial.println(ret);
-      requestFlg = 0;
-    }
   }
 
   // Rx Queue
@@ -127,5 +122,24 @@ void loop() {
     }
   }
 
-  delay(1000);
+  if(requestFlg == 1){
+    ret = sakuraio.clearTx();
+    ret = sakuraio.enqueueTx((uint8_t)0, (int32_t)counter);
+    ret = sakuraio.enqueueTx((uint8_t)1, (int32_t)counter);
+    ret = sakuraio.enqueueTx((uint8_t)2, (int32_t)counter);
+    ret = sakuraio.enqueueTx((uint8_t)3, (int32_t)counter);
+    ret = sakuraio.enqueueTx((uint8_t)4, (int32_t)counter);
+    ret = sakuraio.enqueueTx((uint8_t)5, (int32_t)counter);
+    Serial.print("Enqueue ");
+    Serial.println(ret);
+
+      ret = sakuraio.send();
+      Serial.print("Send ");
+      Serial.println(ret);
+      ret = sakuraio.clearTx();
+      requestFlg = 0;
+    }
+  
+
+  delay(10000);
 }
