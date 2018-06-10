@@ -71,7 +71,7 @@ void loop() {
 */
       //0x03 - Read Holding Registers (channel:"1", type:i ,value:)
       if (type == 'i') {
-        if (channel == "1") {
+        if (channel == '1') {
 
           //ToDo  Tx Queue
 
