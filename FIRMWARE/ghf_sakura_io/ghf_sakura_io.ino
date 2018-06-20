@@ -1,5 +1,6 @@
-#include <ModbusRtu.h>
 #include <SakuraIO.h>
+#include <ModbusRtu.h>
+
 
 // Sakura IO
 SakuraIO_I2C sakuraio;
@@ -49,6 +50,7 @@ void loop() {
   static uint32_t i;
   uint8_t j, result;
   uint16_t data[6];
+  uint8_t ret;
   
   i++;
 
@@ -56,6 +58,7 @@ void loop() {
   // 受信キューの状態を取得
   uint8_t rxAvailable;
   uint8_t rxQueued;
+  uint8_t queued;
   sakuraio.getRxQueueLength(&rxAvailable, &rxQueued);
 
   // 受信キューにたまっているメッセージの数だけ繰り返す
@@ -118,12 +121,12 @@ void loop() {
     //Serial.println(ret);
   }else if(queued >= 1){
     if(requestFlg == 1){
-      sakuraio.enqueueTx(0,au16data1[0]);
-      sakuraio.enqueueTx(1,au16data1[1]);
-      sakuraio.enqueueTx(2,au16data1[2]);
-      sakuraio.enqueueTx(0,au16data1[3]);
-      sakuraio.enqueueTx(1,au16data1[4]);
-      sakuraio.enqueueTx(2,au16data1[5]);
+      sakuraio.enqueueTx(0,(uint32_t)au16data1[0]);
+      sakuraio.enqueueTx(1,(uint32_t)au16data1[1]);
+      sakuraio.enqueueTx(2,(uint32_t)au16data1[2]);
+      sakuraio.enqueueTx(0,(uint32_t)au16data1[3]);
+      sakuraio.enqueueTx(1,(uint32_t)au16data1[4]);
+      sakuraio.enqueueTx(2,(uint32_t)au16data1[5]);
       sakuraio.send();
       //Serial.print("Send ");
       //Serial.println(ret);
