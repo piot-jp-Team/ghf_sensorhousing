@@ -103,8 +103,8 @@ $fn = 90;
  
  
   //kiban_base
- color("red")
-union(){
+%color("red")
+%union(){
      translate ([0,0,30]) {
       difference(){
           cylinder (r1 =52, r2 = 52, h= 2);
@@ -157,7 +157,7 @@ rotate ([0,0,45]) {
 }
 
 translate ([0,0,25]){
-%union(){
+union(){
     rotate_extrude()
       polygon( points=[
 [0,25],
@@ -174,18 +174,22 @@ translate ([0,0,7]) {
   translate ([43,0,0]) {
       difference () {  cylinder (r1 = 4, r2 = 4, h= 18);
       cylinder (r1 = 1.3, r2 = 1.3, h= 18);}
+      translate ([4,0,0])rotate ([0,0,-90])cube([1,7,14]);
   }
   rotate ([0,0,90]) {  translate ([43,0,0]) {
       difference () {  cylinder (r1 = 4, r2 = 4, h= 18);
       cylinder (r1 = 1.3, r2 = 1.3, h= 18);}
+      translate ([4,0,0])rotate ([0,0,-90])cube([1,7,14]);
   }}
   rotate ([0,0,180]) {  translate ([43,0,0]) {
       difference () {  cylinder (r1 = 4, r2 = 4, h= 18);
       cylinder (r1 = 1.3, r2 = 1.3, h= 18);}
+      translate ([4,0,0])rotate ([0,0,-90])cube([1,7,14]);
   }}
    rotate ([0,0,270]) { translate ([43,0,0]) {
        difference () { cylinder (r1 = 4, r2 = 4, h= 18);
        cylinder (r1 = 1.3, r2 = 1.3, h= 18);}
+       translate ([4,0,0])rotate ([0,0,-90])cube([1,7,14]);
   }}
 }
 }
