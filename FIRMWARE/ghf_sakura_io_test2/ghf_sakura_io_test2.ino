@@ -16,6 +16,7 @@ void setup() {
 
 uint8_t counter = 0;
 uint8_t requestFlg = 0;
+uint8_t timecounter = 0;
 
 void loop() {
   counter++;
@@ -85,7 +86,7 @@ void loop() {
   Serial.print(" Queued=");
   Serial.println(queued);
 
-  if(queued >= 7){
+  if(queued >= 16){
     ret = sakuraio.clearTx();
     Serial.print("Clear ");
     Serial.println(ret);
@@ -122,7 +123,7 @@ void loop() {
     }
   }
 
-  if(requestFlg == 1){
+  if(requestFlg == 1 || timecounter==0){
     ret = sakuraio.clearTx();
     ret = sakuraio.enqueueTx((uint8_t)0, (int32_t)counter);
     ret = sakuraio.enqueueTx((uint8_t)1, (int32_t)counter);
@@ -136,10 +137,16 @@ void loop() {
       ret = sakuraio.send();
       Serial.print("Send ");
       Serial.println(ret);
-      ret = sakuraio.clearTx();
+      //ret = sakuraio.clearTx();
       requestFlg = 0;
+      timecounter=0;
     }
   
 
   delay(10000);
+  timecounter++;
+  Serial.println(timecounter);
+  //10分でクリア 10sec * 60
+  if(timecounter>59)timecounter=0;
+  
 }
