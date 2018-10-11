@@ -19,4 +19,3 @@ module kiban(){
         }
    }   
  }
-rotate ([0,0,45]) translate ([-72/2,-48/2,35]) kiban();

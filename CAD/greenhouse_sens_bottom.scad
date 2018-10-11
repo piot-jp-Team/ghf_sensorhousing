@@ -34,4 +34,3 @@ module sens_bottom() {
   }
  }
  
- sens_bottom();
