@@ -47,16 +47,17 @@ union() {
 
     rotate([90, 0, 0]){
         union(){
-            translate([-22, 0, 10]) {
+            translate([-50, 0, 0]) {
                 difference(){
                     cube([100,12,3]);
                     translate([20, 5, 0])
                         cylinder (r1 = 2, r2 = 2, h= 6);
                     translate([3*20+20, 5, 0])
                         cylinder (r1 = 2, r2 = 2, h= 6);
+                    translate([48, 0, 1.5])cube([4,15,3]);
                 }
             }
-            translate([-22, 0, 10]) {
+            translate([-50, 0, 0]) {
                 difference(){
                     cube([14,5,35]);
                     translate([7, 0, 26]) {
@@ -71,7 +72,7 @@ union() {
                     }
                 }
             }
-            translate([64, 0, 10]) {
+            translate([36, 0, 0]) {
                 difference(){
                     cube([14,5,35]);
                     translate([7, 0, 26]) {

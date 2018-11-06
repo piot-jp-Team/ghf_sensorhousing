@@ -31,7 +31,7 @@ union() {
             }
         }
         
-         translate([-13, 55, 0]) {
+         translate([-13, 40, 0]) {
             difference(){
                 cube([80,7,2]);
                 translate([3.5, 3.5, 0]) {
