@@ -9,9 +9,10 @@ union(){
 
       difference(){
           cylinder (r1 =52, r2 = 52, h= 2);
-          translate ([-48/2,-60/2,0]){
-            cube ([48,60,2]);
-          }
+//          translate ([-48/2,-60/2,0]){
+//            cube ([48,60,2]);
+//          }
+          cylinder (r1 = 35, r2 = 35, h= 2);
           rotate ([0,0,45]) {translate ([43,0,0]) {
             cylinder (r1 = 2.8, r2 = 2.8, h= 2);}
           }    
