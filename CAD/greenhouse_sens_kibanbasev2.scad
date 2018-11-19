@@ -9,24 +9,52 @@ union(){
 
       difference(){
           cylinder (r1 =52, r2 = 52, h= 2);
-          rotate ([0,0,45]) {translate ([-48/2,-60/2,0]){
+          translate ([-48/2,-60/2,0]){
             cube ([48,60,2]);
-          }}
-          rotate ([0,0,0]) {translate ([43,0,0]) {
+          }
+          rotate ([0,0,45]) {translate ([43,0,0]) {
             cylinder (r1 = 2.8, r2 = 2.8, h= 2);}
           }    
-          rotate ([0,0,90]) {translate ([43,0,0]) {
+          rotate ([0,0,135]) {translate ([43,0,0]) {
             cylinder (r1 = 2.8, r2 = 2.8, h= 2);}
           }         
-          rotate ([0,0,180]) {translate ([43,0,0]) {
+          rotate ([0,0,225]) {translate ([43,0,0]) {
             cylinder (r1 = 2.8, r2 = 2.8, h= 2);}
           }    
-          rotate ([0,0,270]) {translate ([43,0,0]) {
+          rotate ([0,0,-45]) {translate ([43,0,0]) {
             cylinder (r1 = 2.8, r2 = 2.8, h= 2);}
-          }    
+          }
+        for ( i = [-6 : 6] )
+        { 
+            rotate( [0, 0, i * 360 / 60])
+            translate ([40,0,0]){
+            cube ([8,2,2]);
+          }
+        } 
+        for ( i = [9 : 21] )
+        { 
+            rotate( [0, 0, i * 360 / 60])
+            translate ([40,0,0]){
+            cube ([8,2,2]);
+          }
+        }
+        for ( i = [24 : 36] )
+        { 
+            rotate( [0, 0, i * 360 / 60])
+            translate ([40,0,0]){
+            cube ([8,2,2]);
+          }
+        }
+        for ( i = [39 : 51] )
+        { 
+            rotate( [0, 0, i * 360 / 60])
+            translate ([40,0,0]){
+            cube ([8,2,2]);
+          }
+        }    
       }
       
-        rotate ([0,0,45]) {
+        rotate ([0,0,0]) {
           translate ([-72/2,-46/2,0]) {
             translate ([3,3,2]){
                 difference(){
