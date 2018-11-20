@@ -56,33 +56,31 @@ union(){
       }
       
         rotate ([0,0,0]) {
-          translate ([-72/2,-46/2,0]) {
-            translate ([3,3,2]){
+            translate ([33,21,0]){
                 difference(){
-                  cylinder (r1 = 3, r2 = 3, h= 3); 
-                  cylinder (r1 = 1.2, r2 = 1.2, h= 3); 
+                  cylinder (r1 = 3, r2 = 3, h= 5); 
+                  cylinder (r1 = 1.2, r2 = 1.2, h= 5); 
                 }
             }
-            translate ([3,3+40,2]){
+            translate ([33,-21,0]){
                 difference(){
-                  cylinder (r1 = 3, r2 = 3, h= 3); 
-                  cylinder (r1 = 1.2, r2 = 1.2, h= 3); 
+                  cylinder (r1 = 3, r2 = 3, h= 5); 
+                  cylinder (r1 = 1.2, r2 = 1.2, h= 5); 
                 }
             }
-            translate ([3+66,3+40,2]){
+            translate ([-33,21,0]){
                 difference(){
-                  cylinder (r1 = 3, r2 = 3, h= 3); 
-                  cylinder (r1 = 1.2, r2 = 1.2, h= 3); 
+                  cylinder (r1 = 3, r2 = 3, h= 5); 
+                  cylinder (r1 = 1.2, r2 = 1.2, h= 5); 
                 }
             }
-            translate ([3+66,3,2]){
+            translate ([-33,-21,0]){
                 difference(){
-                  cylinder (r1 = 3, r2 = 3, h= 3); 
-                  cylinder (r1 = 1.2, r2 = 1.2, h= 3); 
+                  cylinder (r1 = 3, r2 = 3, h= 5); 
+                  cylinder (r1 = 1.2, r2 = 1.2, h= 5); 
                 }
             }
-          }
-      }
+       }
     }
 };
 

@@ -13,7 +13,7 @@ unoDimensions = boardDimensions( UNO );
 
 union() {
 		//standoffs(LEONARDO, mountType=PIN);
-       	standoffs(LEONARDO, mountType=TAPHOLE,topRadius=3.5);
+       	standoffs(LEONARDO, mountType=TAPHOLE,topRadius=3,holeRadius=1.2);
 		boardShape(LEONARDO, offset = 3);
     
         translate([-13, 5, 0]) {
