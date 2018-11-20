@@ -43,52 +43,39 @@ module sens_bottom() {
             translate ([30,0,0]) 
                 cylinder (r1 = 1.2, r2 = 1.2, h= 10);
 //外側                
-        for ( i = [-9 : 8] )
+        for ( i = [-8 : 8] )
         { 
             rotate( [0, 0, i * 360 / 60])
             translate ([30,0,0]){
-            cube ([8,2,8]);
+            cube ([8,2,8],true);
           }
         } 
-        for ( i = [11 : 28] )
+        for ( i = [12 : 28] )
         { 
             rotate( [0, 0, i * 360 / 60])
             translate ([30,0,0]){
-            cube ([8,2,8]);
+            cube ([8,2,8],true);
           }
         }
-        for ( i = [31 : 48] )
+        for ( i = [32 : 48] )
         { 
             rotate( [0, 0, i * 360 / 60])
             translate ([30,0,0]){
-            cube ([8,2,8]);
+            cube ([8,2,8],true);
           }
         }
  //内側
-        for ( i = [1 : 10] )
-        { 
-            rotate( [0, 0, i * 360 / 36])
-            translate ([15,0,0]){
-            cube ([8,2,8]);
-          }
-        } 
-        for ( i = [13 : 22] )
-        { 
-            rotate( [0, 0, i * 360 / 36])
-            translate ([15,0,0]){
-            cube ([8,2,8]);
-          }
+        difference(){
+            cylinder (r1 = 23, r2 = 23, h= 2);
+            cylinder (r1 = 15, r2 = 15, h= 2);
+            for ( i = [0 : 35] )
+            { 
+                rotate( [0, 0, i * 360 / 36])
+                translate ([15,0,0]){
+                cube ([8,1.5,8]);
+              }
+            } 
         }
-        for ( i = [25 : 34] )
-        { 
-            rotate( [0, 0, i * 360 / 36])
-            translate ([15,0,0]){
-            cube ([8,2,8]);
-          }
-        }
-
-        
-      
     }
     
     difference(){rotate(120)translate ([13,0,0])cylinder (r1 = 8, r2 = 8, h= 1.5);rotate(120)translate ([13,0,0])cylinder (r1 = 6.5, r2 = 6.5, h= 1.5);}
