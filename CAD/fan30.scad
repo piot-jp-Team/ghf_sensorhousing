@@ -1,3 +1,5 @@
+$fn = 90;
+
 echo(version=version());
 
 color("gray")
@@ -5,9 +7,9 @@ color("gray")
         linear_extrude(height = 10)
         difference(){
             square([30, 30], center = true);
-            circle(13, center = true);
-            translate([12, -12, 0])circle(2, center = true);
-            translate([12, 12, 0])circle(2, center = true);
-            translate([-12, 12, 0])circle(2, center = true);
-            translate([-12, -12, 0])circle(2, center = true);
+            circle(14.5, center = true);
+            translate([12, -12, 0])circle(1.6, center = true);
+            translate([12, 12, 0])circle(1.6, center = true);
+            translate([-12, 12, 0])circle(1.6, center = true);
+            translate([-12, -12, 0])circle(1.6, center = true);
         }
