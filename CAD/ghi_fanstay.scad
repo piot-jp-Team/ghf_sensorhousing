@@ -16,10 +16,10 @@ difference(){
         }
 
         
-        translate([12, -12, 0])cylinder (r1 = 2.5, r2 = 2.2, h= 6);
-        translate([12, 12, 0])cylinder (r1 = 2.5, r2 = 2.2, h= 6);
-        translate([-12, 12, 0])cylinder (r1 = 2.5, r2 = 2.2, h= 6);
-        translate([-12, -12, 0])cylinder (r1 = 2.5, r2 = 2.2, h= 6); 
+        translate([12, -12, 0])cylinder (r1 = 2.5, r2 = 2.5, h= 6);
+        translate([12, 12, 0])cylinder (r1 = 2.5, r2 = 2.5, h= 6);
+        translate([-12, 12, 0])cylinder (r1 = 2.5, r2 = 2.5, h= 6);
+        translate([-12, -12, 0])cylinder (r1 = 2.5, r2 = 2.5, h= 6); 
         
     difference(){
 
