@@ -8,10 +8,11 @@ module sens_bottom() {
         for ( i = [0 : 1] )
         { 
             difference(){
-            rotate( [0, 0, i * 180])translate ([24.5,0,8])cube ([8,4,14],true);
+            rotate( [0, 0, i * 180])translate ([24.5,0,9])cube ([8,4,15],true);
             rotate( [0, 0, i * 180])translate ([23,4,13])rotate( [90, 90, 0])cylinder (r1 = 0.85, r2 = 0.85, h= 10);
             rotate( [0, 0, i * 180])translate ([15,0,4])rotate( [90, 90, 90])cylinder (r1 = 1.35, r2 = 1.35, h= 20);
             }
+            rotate( [0, 0, i * 180])translate ([20,0,13])cube ([2,4,7],true);
         }
         
      
