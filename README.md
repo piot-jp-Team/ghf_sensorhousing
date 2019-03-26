@@ -25,7 +25,7 @@ sakura.ioから、laravel製のグラフで表示します。（作成中）
 (組み込み側)
 - Arduino
 - modbus/master slave
-- mhz19_uart
+- S-300G or mhz19_uart
 - Adafruit_Sensor
 - Adafruit_AM2320
 - sakura.io
