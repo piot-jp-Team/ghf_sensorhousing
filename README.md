@@ -13,6 +13,7 @@ sakura.ioから、laravel製のグラフで表示します。
 https://github.com/piot-jp-Team/ghf_webapp （日々更新中）  
 ![シーケンス](sequence.svg "シーケンス図")  
 
+sakura.io（iotゲートウエイ）との接続は、https://github.com/piot-jp-Team/ghf_sakuraIO_wss_client  
 今後はsigfox,lorawanも利用したいと思います。
 
 ## 使用するライブラリ   
