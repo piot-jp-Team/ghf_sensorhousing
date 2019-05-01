@@ -1,4 +1,4 @@
-## サーバー側のソースコードは書きリポジトリです。  
+## サーバー側のソースコードは下記リポジトリです。  
 Webアプリ  
 https://github.com/piot-jp-Team/ghf_webapp 
   
